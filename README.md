@@ -1,5 +1,9 @@
 # python3AES-
 AES symmetrical encryption
+
+### 使用方式如下
+
+```python
 if __name__ == '__main__':
     pattern_ecb = aescrypt('123478596','ECB','','utf8')
     en_text = pattern_ecb.aesencrypt('My hero')
@@ -12,3 +16,4 @@ if __name__ == '__main__':
     print('CBC加密模式密文：',cbc_text)
     cbc_data = pattern_cbc.aesdecrypt(cbc_text)
     print('CBC加密模式密文：',cbc_data)
+```
