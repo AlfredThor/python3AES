@@ -9,24 +9,21 @@ class aescrypt():
         self.key = self.add_16(key)
         self.iv = iv.encode()
         if model == 'ECB':
-            self.aes = AES.new(self.key,self.model) #创建一个aes对象
+            self.aes = AES.new(self.key,self.model) 
         elif model == 'CBC':
-            self.aes = AES.new(self.key,self.model,self.iv) #创建一个aes对象
+            self.aes = AES.new(self.key,self.model,self.iv) 
 
-    #这里的密钥长度必须是16、24或32，目前16位的就够用了
     def add_16(self,par):
         par = par.encode(self.encode_)
         while len(par) % 16 != 0:
             par += b'\x00'
         return par
 
-    # 加密
     def aesencrypt(self,text):
         text = self.add_16(text)
         self.encrypt_text = self.aes.encrypt(text)
         return base64.encodebytes(self.encrypt_text).decode().strip()
 
-    # 解密
     def aesdecrypt(self,text):
         if self.model == AES.MODE_ECB:
             text = base64.decodebytes(text.encode(self.encode_))
@@ -40,7 +37,7 @@ class aescrypt():
 
 
 if __name__ == '__main__':
-    pattern_ecb = aescrypt('17610855585','ECB','','utf8')
+    pattern_ecb = aescrypt('841155412','ECB','','utf8')
     en_text = pattern_ecb.aesencrypt('My hero')
     print('ECB加密模式密文:',en_text)
     data = pattern_ecb.aesdecrypt('t7Amf9fH6H+0YOAsNLOKeA==')
