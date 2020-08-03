@@ -45,7 +45,7 @@ if __name__ == '__main__':
     data = pattern_ecb.aesdecrypt(en_text)
     print('ECB加密模式明文：',data)
 
-    # pattern_cbc = aescrypt('17610855585','CBC','1761085558512138','utf8')
+    # pattern_cbc = aescrypt('4152635241548','CBC','1761085558512138','utf8')
     # cbc_text = pattern_cbc.aesencrypt('admin911')
     # print('CBC加密模式密文：',cbc_text)
     # a = '4p2RPQqkQyyBRyTNbqO2Xw=='
